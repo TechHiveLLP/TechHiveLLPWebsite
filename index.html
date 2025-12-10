@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TechHive - A cutting-edge software firm delivering exceptional consulting services, custom software solutions, and innovative products that transform businesses.">
+    <meta name="keywords" content="software development, IT consulting, cloud solutions, mobile apps, AI, machine learning, custom software">
+    <meta name="author" content="TechHive">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TechHive - Innovative Software Solutions">
+    <meta property="og:description" content="Where Innovation Meets Excellence. Delivering exceptional consulting services and custom software solutions.">
+    <meta property="og:url" content="https://tech-hive.in">
+    
+    <title>TechHive - Innovative Software Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #fbb034;
+            --dark-bg: #1a1a2e;
+            --light-bg: #16213e;
+            --text-light: #ffffff;
+            --text-gray: #a8b2d1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-light);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15), transparent);
+            border-radius: 50%;
+            top: -250px;
+            right: -250px;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(251, 176, 52, 0.15), transparent);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -200px;
+            animation: pulse 4s ease-in-out infinite 2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease 0.9s backwards;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* Cards */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            text-align: left;
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: linear-gradient(135deg, var(--light-bg), rgba(22, 33, 62, 0.5));
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .product-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .product-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-details p {
+            text-align: center;
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(22, 33, 62, 0.5);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 107, 53, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 10000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem 0;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                padding: 1rem 2rem;
+                border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            section p {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text {
+                padding: 0 0.5rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stat-item {
+                padding: 1.25rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+            }
+
+            .cards-container,
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#home" class="skip-link">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hexagon shape for "Hive" -->
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fbb034;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" 
+                             fill="url(#logoGradient)" stroke="#fbb034" stroke-width="2"/>
+                    <!-- Inner hexagon pattern -->
+                    <polygon points="50,25 70,37.5 70,62.5 50,75 30,62.5 30,37.5" 
+                             fill="none" stroke="#1a1a2e" stroke-width="2"/>
+                    <!-- Tech circuit lines -->
+                    <line x1="50" y1="25" x2="50" y2="40" stroke="#1a1a2e" stroke-width="2"/>
+                    <line x1="50" y1="60" x2="50" y2="75" stroke="#1a1a2e" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="5" fill="#1a1a2e"/>
+                </svg>
+                <span class="brand-name">TechHive</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle" aria-label="Toggle mobile menu" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to TechHive</h1>
+            <p class="tagline">Where Innovation Meets Excellence</p>
+            <p class="subtitle">A cutting-edge software firm established in 2025, dedicated to delivering exceptional consulting services, custom software solutions, and innovative products that transform businesses.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About TechHive</h2>
+        <p>Founded in 2025, TechHive is a forward-thinking software firm committed to excellence in technology solutions.</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Mission</h3>
+                <p>To empower businesses through innovative technology solutions, expert consulting, and cutting-edge software products. We believe in building lasting partnerships with our clients and delivering solutions that drive real business value.</p>
+                
+                <h3>Our Vision</h3>
+                <p>To be the leading software firm that businesses trust for their digital transformation journey. We strive to create a hive of innovation where ideas flourish and technology solves real-world problems.</p>
+                
+                <h3>Why Choose TechHive?</h3>
+                <p>We combine technical expertise with business acumen to deliver solutions that are not just technically sound, but also strategically aligned with your business goals.</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">2025</span>
+                    <span class="stat-label">Established</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support Available</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>Comprehensive technology solutions tailored to your business needs</p>
+        
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">💼</div>
+                <h3>IT Consulting</h3>
+                <p>Expert guidance on technology strategy, digital transformation, and IT infrastructure. Our consultants bring years of industry experience to help you make informed decisions.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Custom Software Development</h3>
+                <p>Bespoke software solutions built from the ground up to match your unique business requirements. We use modern technologies and agile methodologies.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>Cloud Solutions</h3>
+                <p>Seamless cloud migration, architecture design, and management services. We help you leverage the power of cloud computing for scalability and efficiency.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>Mobile App Development</h3>
+                <p>Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.</p>
+            </div>
+            
+            <!-- <div class="card">
+                <div class="card-icon">🔒</div>
+                <h3>Cybersecurity</h3>
+                <p>Comprehensive security assessments, implementation of security best practices, and ongoing monitoring to protect your digital assets.</p>
+            </div> -->
+            
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>AI & Machine Learning</h3>
+                <p>Harness the power of artificial intelligence and machine learning to automate processes and gain insights from your data.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>TechHive Products</h2>
+        <p>Innovative software products designed to solve common business challenges</p>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <span class="product-tag">SaaS</span>
+                <h3>CacheHive</h3>
+                <p>A powerful AI-driven solution for optimizing cache performance and reducing latency in distributed systems.</p>
+            </div>
+            
+            <div class="product-card">
+                <span class="product-tag">B2C</span>
+                <h3>BudgetHive</h3>
+                <p>Personal finance management software that helps individuals and families budget, track expenses, and achieve their financial goals.</p>
+            </div>
+            
+            <!-- <div class="product-card">
+                <span class="product-tag">CRM</span>
+                <h3>ClientHive</h3>
+                <p>Customer relationship management software that helps you build lasting customer relationships and drive sales growth.</p>
+            </div>
+            
+            <div class="product-card">
+                <span class="product-tag">DevOps</span>
+                <h3>DeployHive</h3>
+                <p>Automated CI/CD pipeline management tool that simplifies deployment processes and ensures reliable software delivery.</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Ready to start your next project? Reach out to us via email and we'll get back to you shortly!</p>
+        
+        <div class="cards-container">
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-details">
+                    <h4>Office Address</h4>
+                    <p>Ahmedabad, Gujarat<br>India</p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                    <h4>Email</h4>
+                    <p><a href="mailto:doshi@tech-hive.in" style="color: var(--text-gray); text-decoration: none; transition: color 0.3s ease;">doshi@tech-hive.in</a></p>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">⏰</div>
+                <div class="contact-details">
+                    <h4>Business Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(251, 176, 52, 0.1)); border: 1px solid rgba(255, 107, 53, 0.2); border-radius: 20px; padding: 3rem; text-align: center; margin-top: 3rem;">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--primary-color);">Ready to Work Together?</h3>
+            <p style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: var(--text-gray);">
+                Drop us an email with your project details, questions, or just to say hello. 
+                Our team typically responds within 24 hours.
+            </p>
+            <a href="mailto:doshi@tech-hive.in" class="cta-button">Send us an Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo-container" style="justify-content: center; margin-bottom: 1rem;">
+                <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#fbb034;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <polygon points="50,5 90,27.5 90,72.5 50,95 10,72.5 10,27.5" 
+                             fill="url(#logoGradient2)" stroke="#fbb034" stroke-width="2"/>
+                    <polygon points="50,25 70,37.5 70,62.5 50,75 30,62.5 30,37.5" 
+                             fill="none" stroke="#1a1a2e" stroke-width="2"/>
+                    <line x1="50" y1="25" x2="50" y2="40" stroke="#1a1a2e" stroke-width="2"/>
+                    <line x1="50" y1="60" x2="50" y2="75" stroke="#1a1a2e" stroke-width="2"/>
+                    <circle cx="50" cy="50" r="5" fill="#1a1a2e"/>
+                </svg>
+            </div>
+            
+            <!-- <div class="social-links">
+                <a href="#" aria-label="LinkedIn">💼</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="GitHub">💻</a>
+                <a href="#" aria-label="Facebook">📘</a>
+            </div> -->
+            
+            <p class="copyright">&copy; 2025 TechHive. All rights reserved. | Building the future, one line of code at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Handle keyboard activation
+            mobileMenuToggle.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    mobileMenuToggle.click();
+                }
+            });
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    if (navLinks.classList.contains('active')) {
+                        mobileMenuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Add hover effect to email link in contact section
+        const emailLink = document.querySelector('.contact-details a[href^="mailto"]');
+        if (emailLink) {
+            emailLink.addEventListener('mouseenter', function() {
+                this.style.color = 'var(--primary-color)';
+            });
+            emailLink.addEventListener('mouseleave', function() {
+                this.style.color = 'var(--text-gray)';
+            });
+        }
+    </script>
+</body>
+</html>
