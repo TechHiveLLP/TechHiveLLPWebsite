@@ -12,8 +12,8 @@ const contactItems = [
   {
     icon: Mail,
     title: "Email",
-    lines: ["doshi@tech-hive.in"],
-    link: "mailto:doshi@tech-hive.in",
+    lines: ["techhivellp@gmail.com"],
+    link: "mailto:techhivellp@gmail.com",
   },
   {
     icon: Clock,
@@ -60,9 +60,9 @@ export default function Contact() {
                 className="w-5 h-5 text-primary mb-5"
                 strokeWidth={1.5}
               />
-              <h4 className="text-sm font-medium text-text-primary mb-2">
+              <h3 className="text-sm font-medium text-text-primary mb-2">
                 {item.title}
-              </h4>
+              </h3>
               {item.lines.map((line) =>
                 item.link ? (
                   <a
@@ -100,7 +100,7 @@ export default function Contact() {
             </p>
           </div>
           <a
-            href="mailto:doshi@tech-hive.in"
+            href="mailto:techhivellp@gmail.com"
             className="group inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-dark-bg font-medium text-sm rounded-lg hover:bg-white transition-colors shrink-0 cursor-pointer"
           >
             Send an Email
