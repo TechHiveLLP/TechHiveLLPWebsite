@@ -34,7 +34,7 @@ src/
     Hero.tsx         # Full-screen hero with mesh gradient blobs
     About.tsx        # Stats + pillars in pixel-gap grids
     Services.tsx     # Numbered list layout (01-05)
-    Products.tsx     # FSIMetrics + RadiantAI cards
+    Products.tsx     # FSIMetrics + SiteMetrics + RadiantAI cards
     Contact.tsx      # Contact cards + CTA banner
     Footer.tsx       # Minimal footer with logo
 ```

@@ -9,6 +9,9 @@ import {
   MapPin,
   Sparkles,
   Clock,
+  ClipboardList,
+  Wallet,
+  Languages,
 } from "lucide-react";
 
 const products = [
@@ -25,6 +28,21 @@ const products = [
     ],
     link: "https://www.fsimetrics.com",
     linkLabel: "Visit FSIMetrics",
+    isLive: true,
+  },
+  {
+    tag: "Live Product",
+    name: "SiteMetrics",
+    description:
+      "Construction management software for builders and contractors. Purchasing, deliveries, budgets, attendance and site plans — one app for your office and every site, under your firm's own name.",
+    features: [
+      { icon: ClipboardList, label: "Purchase Orders" },
+      { icon: Wallet, label: "Budget Tracking" },
+      { icon: MapPin, label: "Geofenced Attendance" },
+      { icon: Languages, label: "Gujarati & Hindi" },
+    ],
+    link: "https://www.sitemetrics.in",
+    linkLabel: "Visit SiteMetrics",
     isLive: true,
   },
   {
@@ -77,7 +95,7 @@ export default function Products() {
         </motion.div>
 
         {/* Products */}
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
@@ -85,7 +103,7 @@ export default function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-xl bg-dark-surface border border-dark-border p-8 md:p-10 hover:border-primary/20 transition-all duration-300 relative overflow-hidden"
+              className="group rounded-xl bg-dark-surface border border-dark-border p-8 hover:border-primary/20 transition-all duration-300 relative overflow-hidden"
             >
               {/* Subtle hover glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
