@@ -103,7 +103,7 @@ export default function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-xl bg-dark-surface border border-dark-border p-8 hover:border-primary/20 transition-all duration-300 relative overflow-hidden"
+              className="group rounded-xl bg-dark-surface border border-dark-border p-8 md:last:col-span-2 lg:last:col-span-1 hover:border-primary/20 transition-all duration-300 relative overflow-hidden"
             >
               {/* Subtle hover glow */}
               <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
